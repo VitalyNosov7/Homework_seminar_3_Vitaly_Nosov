@@ -13,3 +13,20 @@ Git был изначально разработан с целью решить 
 Надо сказать, что git — это не единственная система контроля версий. Есть еще Mercurial, Team Foundation Server, SVN и прочие решения, но все они сильно уступают в популярности git. В основном из-за того, что многие крупные IT-корпорации поддерживают и развивают git. Например, Microsoft, которой принадлежит gitHUB.
 
 Если сейчас вам не совсем ясно что же такое git — не переживайте, в процессе прочтения статьи всё прояснится. Перейдем от слов к практике и пощупаем git вживую.
+
+Установка и обновление git
+Git можно установить на все популярные десктопные ОС: Windows, Linux, MacOS. В Ubuntu достаточно выполнить уже привычный многим набор команд: apt update && apt install -y git. Если git уже установлен, но версия устарела — обновить git можно так:
+
+Скачайте репозиторий с исходниками git: git clone https://github.com/git/git;
+Обновите apt-репозиторий: apt update;
+Скачайте набор пакетов, необходимых для сборки GIT из исходников:
+sudo apt-get install dh-autoreconf libcurl4-gnutls-dev libexpat1-dev \ gettext libz-dev libssl-dev;
+sudo apt-get install asciidoc xmlto docbook2x;
+sudo apt-get install install-info.
+Сделайте симлинк: sudo ln -s /usr/bin/db2x_docbook2texi /usr/bin/docbook2x-texi.
+Перейдите в скачанный репозиторий командой cd и выполните следующий набор команд:
+make configure;
+./configure --prefix=/usr;
+make all doc info;
+sudo make install install-doc install-html install-info.
+Ещё раз выполните команду git --version, чтобы убедиться, что git успешно обновился. Теперь можно двигаться дальше и настроить git для работы.
