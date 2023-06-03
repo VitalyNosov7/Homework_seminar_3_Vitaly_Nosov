@@ -1,4 +1,3 @@
-
 ![Лого-git](images\logo_git.jpg)
 # Что такое Git?
 
